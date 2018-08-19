@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/blankFragment1">
+  <fragment
+      android:id="@+id/blankFragment1"
+      android:name="com.example.kotlinnavigationsample.basic.BlankFragment1"
+      android:label="fragment_blank_1"
+      tools:layout="@layout/fragment_blank_1">
+    <argument
+        android:name="param1"
+        android:defaultValue="default:b1"/>
+
+    <action
+        android:id="@+id/action_blankFragment1_to_blankFragment2"
+        app:destination="@+id/blankFragment2"/>
+  </fragment>
+  <fragment
+      android:id="@+id/blankFragment2"
+      android:name="com.example.kotlinnavigationsample.basic.BlankFragment2"
+      android:label="fragment_blank_2"
+      tools:layout="@layout/fragment_blank_2">
+  </fragment>
+</navigation>
