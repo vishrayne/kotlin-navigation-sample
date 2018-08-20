@@ -25,7 +25,7 @@ class BottomNavFragment : Fragment() {
     bottomNavImageView.setImageResource(iconID)
   }
 
-  fun assetPackFor(label: String): Pair<String, Int> {
+  private fun assetPackFor(label: String): Pair<String, Int> {
     return when (label) {
       "home" -> Pair("Home", R.drawable.ic_home_black_24dp)
       "dashboard" -> Pair("Dashboard", R.drawable.ic_dashboard_black_24dp)
