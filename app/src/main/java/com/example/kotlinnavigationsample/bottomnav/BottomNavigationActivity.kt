@@ -3,38 +3,28 @@ package com.example.kotlinnavigationsample.bottomnav
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
 import com.example.kotlinnavigationsample.R
-import kotlinx.android.synthetic.main.activity_bottom_navigation.*
+import kotlinx.android.synthetic.main.activity_bottom_navigation.bottomNavigation
 
 class BottomNavigationActivity : AppCompatActivity() {
+  private lateinit var navController: NavController
+
   companion object {
     fun getIntent(context: Context): Intent = Intent(context, BottomNavigationActivity::class.java)
   }
 
-  private val mOnNavigationItemSelectedListener =
-    BottomNavigationView.OnNavigationItemSelectedListener { item ->
-      return@OnNavigationItemSelectedListener when (item.itemId) {
-        R.id.navigation_home -> {
-          message.setText(R.string.title_home)
-          true
-        }
-        R.id.navigation_dashboard -> {
-          message.setText(R.string.title_dashboard)
-          true
-        }
-        R.id.navigation_notifications -> {
-          message.setText(R.string.title_notifications)
-          true
-        }
-        else -> false
-      }
-    }
+  override fun onSupportNavigateUp() = navController.navigateUp()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_bottom_navigation)
-    navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+    navController = Navigation.findNavController(this, R.id.bottomNavFragment)
+
+    NavigationUI.setupActionBarWithNavController(this, navController)
+    NavigationUI.setupWithNavController(bottomNavigation, navController)
   }
 }
