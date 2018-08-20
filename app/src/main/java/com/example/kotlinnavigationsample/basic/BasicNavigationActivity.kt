@@ -2,9 +2,9 @@ package com.example.kotlinnavigationsample.basic
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import com.example.kotlinnavigationsample.R

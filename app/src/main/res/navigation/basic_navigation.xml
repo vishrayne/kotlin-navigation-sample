@@ -15,7 +15,8 @@
 
     <action
         android:id="@+id/action_blankFragment1_to_blankFragment2"
-        app:destination="@+id/blankFragment2"/>
+        app:destination="@+id/blankFragment2"
+        app:popUpToInclusive="false"/>
   </fragment>
   <fragment
       android:id="@+id/blankFragment2"

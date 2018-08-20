@@ -11,8 +11,7 @@ import kotlinx.android.synthetic.main.fragment_bottom_nav.bottomNavImageView
 import kotlinx.android.synthetic.main.fragment_bottom_nav.bottomNavTextView
 
 class BottomNavFragment : Fragment() {
-  private val iconId: Int by lazy { arguments?.getInt("icon_id") ?: R.mipmap.ic_launcher_round }
-  private val label: String by lazy { arguments?.getString("label") ?: "Empty" }
+  private val label: String by lazy { arguments?.getString("label") ?: "" }
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
       savedInstanceState: Bundle?): View? {
@@ -21,7 +20,17 @@ class BottomNavFragment : Fragment() {
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    bottomNavTextView.text = label
-    bottomNavImageView.setImageResource(iconId)
+    val (tag, iconID) = assetPackFor(label)
+    bottomNavTextView.text = tag
+    bottomNavImageView.setImageResource(iconID)
+  }
+
+  fun assetPackFor(label: String): Pair<String, Int> {
+    return when (label) {
+      "home" -> Pair("Home", R.drawable.ic_home_black_24dp)
+      "dashboard" -> Pair("Dashboard", R.drawable.ic_dashboard_black_24dp)
+      "notification" -> Pair("Notification", R.drawable.ic_notifications_black_24dp)
+      else -> Pair("Unknown", R.drawable.ic_launcher_background)
+    }
   }
 }
