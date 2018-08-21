@@ -34,6 +34,15 @@
           android:name="android.support.PARENT_ACTIVITY"
           android:value="com.example.kotlinnavigationsample.MainActivity"/>
     </activity>
+    <activity
+        android:name=".drawernav.DrawerNavigationActivity"
+        android:label="@string/title_activity_drawer_navigation"
+        android:parentActivityName=".MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.example.kotlinnavigationsample.MainActivity"/>
+    </activity>
   </application>
 
 </manifest>
