@@ -1,4 +1,4 @@
-package com.example.kotlinnavigationsample.drawernav
+package com.example.kotlinnavigationsample
 
 import android.content.Context
 import android.content.Intent
@@ -6,10 +6,8 @@ import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
-import com.example.kotlinnavigationsample.R
 import kotlinx.android.synthetic.main.activity_drawer_navigation.drawerLayout
 import kotlinx.android.synthetic.main.activity_drawer_navigation.drawerNavView
 import kotlinx.android.synthetic.main.app_bar_drawer_navigation.toolbar

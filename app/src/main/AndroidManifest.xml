@@ -19,7 +19,7 @@
       </intent-filter>
     </activity>
     <activity
-        android:name=".basic.BasicNavigationActivity"
+        android:name=".BasicNavigationActivity"
         android:label="@string/title_activity_basic_navigation"
         android:parentActivityName=".MainActivity">
       <meta-data
@@ -27,7 +27,7 @@
           android:value="com.example.kotlinnavigationsample.MainActivity"/>
     </activity>
     <activity
-        android:name=".bottomnav.BottomNavigationActivity"
+        android:name=".BottomNavigationActivity"
         android:label="@string/title_activity_bottom_navigation"
         android:parentActivityName=".MainActivity">
       <meta-data
@@ -35,7 +35,7 @@
           android:value="com.example.kotlinnavigationsample.MainActivity"/>
     </activity>
     <activity
-        android:name=".drawernav.DrawerNavigationActivity"
+        android:name=".DrawerNavigationActivity"
         android:label="@string/title_activity_drawer_navigation"
         android:parentActivityName=".MainActivity"
         android:theme="@style/AppTheme.NoActionBar">
@@ -44,5 +44,5 @@
           android:value="com.example.kotlinnavigationsample.MainActivity"/>
     </activity>
   </application>
-
+  
 </manifest>

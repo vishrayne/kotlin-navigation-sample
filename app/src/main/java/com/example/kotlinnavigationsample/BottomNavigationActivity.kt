@@ -1,4 +1,4 @@
-package com.example.kotlinnavigationsample.bottomnav
+package com.example.kotlinnavigationsample
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
-import com.example.kotlinnavigationsample.R
 import kotlinx.android.synthetic.main.activity_bottom_navigation.bottomNavigation
 
 class BottomNavigationActivity : AppCompatActivity() {

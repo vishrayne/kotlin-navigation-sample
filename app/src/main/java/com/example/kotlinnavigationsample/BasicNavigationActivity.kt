@@ -1,4 +1,4 @@
-package com.example.kotlinnavigationsample.basic
+package com.example.kotlinnavigationsample
 
 import android.content.Context
 import android.content.Intent
@@ -7,12 +7,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import com.example.kotlinnavigationsample.R
 import com.example.kotlinnavigationsample.common.PlaceHolderFragment
 import com.example.kotlinnavigationsample.common.PlaceHolderFragment.Action.BACK
 import com.example.kotlinnavigationsample.common.PlaceHolderFragment.Action.NEXT
-import kotlinx.android.synthetic.main.activity_basic_navigation.basicNavHostFragment
 
 class BasicNavigationActivity : AppCompatActivity(), PlaceHolderFragment.OnActionListener {
   companion object {

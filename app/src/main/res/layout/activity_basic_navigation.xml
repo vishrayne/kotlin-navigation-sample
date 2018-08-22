@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".basic.BasicNavigationActivity"
+    tools:context=".BasicNavigationActivity"
     >
 
   <!-- Disabled app:navGraph="@menu_bottom_navigation/basic_navigation. See host activity for details"-->
