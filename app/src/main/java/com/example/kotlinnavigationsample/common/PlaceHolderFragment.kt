@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kotlinnavigationsample.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_place_holder.actionBtn
 import kotlinx.android.synthetic.main.fragment_place_holder.textView
 import kotlinx.android.synthetic.main.fragment_place_holder.vectorImageView
@@ -30,6 +31,9 @@ class PlaceHolderFragment : Fragment() {
 
   private lateinit var listener: OnActionListener
   private val label: String by lazy { arguments?.getString("label") ?: "" }
+  private val hasCustomArgs: Boolean by lazy {
+    arguments?.getBoolean("has_custom_params") ?: false
+  }
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -53,6 +57,13 @@ class PlaceHolderFragment : Fragment() {
     } else {
       actionBtn.visibility = View.VISIBLE
       attachAction(context, action)
+    }
+
+    if (hasCustomArgs) {
+      with(arguments?.getString("custom_arg") ?: "Bad_Key") {
+        Snackbar.make(view, "Custom Argument: $this", Snackbar.LENGTH_SHORT)
+            .show()
+      }
     }
   }
 

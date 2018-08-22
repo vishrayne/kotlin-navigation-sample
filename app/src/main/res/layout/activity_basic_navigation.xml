@@ -8,7 +8,7 @@
     tools:context=".basic.BasicNavigationActivity"
     >
 
-  <!-- Disabled app:navGraph="@navigation/basic_navigation. See host activity for details"-->
+  <!-- Disabled app:navGraph="@menu_bottom_navigation/basic_navigation. See host activity for details"-->
   <fragment
       android:id="@+id/basicNavHostFragment"
       android:name="androidx.navigation.fragment.NavHostFragment"
@@ -19,5 +19,6 @@
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toTopOf="parent"
+      app:navGraph="@navigation/basic_navigation"
       />
 </androidx.constraintlayout.widget.ConstraintLayout>

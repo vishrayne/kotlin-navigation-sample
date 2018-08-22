@@ -22,17 +22,6 @@ class BasicNavigationActivity : AppCompatActivity(), PlaceHolderFragment.OnActio
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_basic_navigation)
-
-    // The default layout:navGraph methods doesn't allow us to pass args to the start destination,
-    // so I had to manually inflate the graph with the required args.
-    val navHostFragment = basicNavHostFragment as NavHostFragment
-    navHostFragment.navController.graph =
-        navHostFragment.navController.navInflater.inflate(R.navigation.basic_navigation)
-            .apply {
-              addDefaultArguments(
-                  bundleOf("label" to PlaceHolderFragment.NEXT)
-              )
-            }
   }
 
   override fun onAction(
@@ -45,12 +34,14 @@ class BasicNavigationActivity : AppCompatActivity(), PlaceHolderFragment.OnActio
   }
 
   private fun onNext(view: View) {
-    val b = bundleOf(
-        "label" to BACK
-    )
-
     Navigation.findNavController(view)
-        .navigate(R.id.action_navigation_next_to_navigation_back, b)
+        .navigate(
+            R.id.action_navigation_next_to_navigation_back,
+            bundleOf(
+                "has_custom_params" to true,
+                "custom_arg" to "Kryptonian"
+            )
+        )
   }
 
   private fun onBack(view: View) {
