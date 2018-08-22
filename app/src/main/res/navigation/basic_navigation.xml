@@ -14,12 +14,16 @@
         app:destination="@id/navigation_back"/>
     <argument
         android:name="label"
-        android:defaultValue="back"/>
+        android:defaultValue="next"/>
   </fragment>
 
   <fragment
       android:id="@+id/navigation_back"
       android:name="com.example.kotlinnavigationsample.common.PlaceHolderFragment"
       android:label="PlaceHolderFragment"
-      tools:layout="@layout/fragment_place_holder"/>
+      tools:layout="@layout/fragment_place_holder">
+    <argument
+        android:name="label"
+        android:defaultValue="back"/>
+  </fragment>
 </navigation>
