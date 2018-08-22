@@ -25,4 +25,5 @@
   </com.google.android.material.appbar.AppBarLayout>
 
   <include layout="@layout/content_drawer_navigation"/>
+  
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
