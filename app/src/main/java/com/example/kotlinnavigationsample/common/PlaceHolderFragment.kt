@@ -19,6 +19,12 @@ class PlaceHolderFragment : Fragment() {
     const val HOME = "home"
     const val DASHBOARD = "dashboard"
     const val NOTIFICATIONS = "notification"
+    const val CAMERA = "camera"
+    const val GALLERY = "gallery"
+    const val SLIDESHOW = "slideshow"
+    const val TOOLS = "tools"
+    const val SHARE = "share"
+    const val SEND = "send"
     const val NONE = "none" // no-op response code
   }
 
@@ -87,6 +93,12 @@ class PlaceHolderFragment : Fragment() {
       HOME -> Triple("Home", R.drawable.ic_home_black_24dp, NONE)
       DASHBOARD -> Triple("Dashboard", R.drawable.ic_dashboard_black_24dp, NONE)
       NOTIFICATIONS -> Triple("Notification", R.drawable.ic_notifications_black_24dp, NONE)
+      CAMERA -> Triple("Camera", R.drawable.ic_menu_camera, NONE)
+      GALLERY -> Triple("Gallery", R.drawable.ic_menu_gallery, NONE)
+      SLIDESHOW -> Triple("Slideshow", R.drawable.ic_menu_slideshow, NONE)
+      TOOLS -> Triple("Tools", R.drawable.ic_menu_manage, NONE)
+      SHARE -> Triple("Share", R.drawable.ic_menu_share, NONE)
+      SEND -> Triple("Send", R.drawable.ic_menu_send, NONE)
       else -> Triple("Unknown", R.drawable.ic_launcher_background, NONE)
     }
   }

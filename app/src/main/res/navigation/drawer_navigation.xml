@@ -8,35 +8,59 @@
       android:id="@+id/nav_camera"
       android:name="com.example.kotlinnavigationsample.common.PlaceHolderFragment"
       android:label="Camera"
-      tools:layout="@layout/fragment_place_holder"/>
+      tools:layout="@layout/fragment_place_holder">
+    <argument
+        android:name="label"
+        android:defaultValue="camera"/>
+  </fragment>
 
   <fragment
       android:id="@+id/nav_gallery"
       android:name="com.example.kotlinnavigationsample.common.PlaceHolderFragment"
       android:label="Gallery"
-      tools:layout="@layout/fragment_place_holder"/>
+      tools:layout="@layout/fragment_place_holder">
+    <argument
+        android:name="label"
+        android:defaultValue="gallery"/>
+  </fragment>
 
   <fragment
       android:id="@+id/nav_slideshow"
       android:name="com.example.kotlinnavigationsample.common.PlaceHolderFragment"
       android:label="Slideshow"
-      tools:layout="@layout/fragment_place_holder"/>
+      tools:layout="@layout/fragment_place_holder">
+    <argument
+        android:name="label"
+        android:defaultValue="slideshow"/>
+  </fragment>
 
   <fragment
       android:id="@+id/nav_manage"
       android:name="com.example.kotlinnavigationsample.common.PlaceHolderFragment"
       android:label="Manage"
-      tools:layout="@layout/fragment_place_holder"/>
+      tools:layout="@layout/fragment_place_holder">
+    <argument
+        android:name="label"
+        android:defaultValue="tools"/>
+  </fragment>
 
   <fragment
       android:id="@+id/nav_share"
       android:name="com.example.kotlinnavigationsample.common.PlaceHolderFragment"
       android:label="Share"
-      tools:layout="@layout/fragment_place_holder"/>
+      tools:layout="@layout/fragment_place_holder">
+    <argument
+        android:name="label"
+        android:defaultValue="share"/>
+  </fragment>
 
   <fragment
       android:id="@+id/nav_send"
       android:name="com.example.kotlinnavigationsample.common.PlaceHolderFragment"
       android:label="Send"
-      tools:layout="@layout/fragment_place_holder"/>
+      tools:layout="@layout/fragment_place_holder">
+    <argument
+        android:name="label"
+        android:defaultValue="send"/>
+  </fragment>
 </navigation>
