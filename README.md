@@ -4,5 +4,6 @@ A very minimal playground app to showcase how the new [navigation architecture c
 
 1. Basic Navigation
 2. Bottom Navigation
+3. Drawer Navigation
 
 > To be continued...
