@@ -30,19 +30,22 @@ class BasicNavigationActivity : AppCompatActivity(), PlaceHolderFragment.OnActio
     else -> throw RuntimeException("Undefined action $actionLabel for PlaceHolderFragment")
   }
 
-  private fun onNext(view: View) {
-    Navigation.findNavController(view)
-        .navigate(
-            R.id.action_navigation_next_to_navigation_back,
-            bundleOf(
-                "has_custom_params" to true,
-                "custom_arg" to "Kryptonian"
-            )
-        )
-  }
+}
 
-  private fun onBack(view: View) {
-    Navigation.findNavController(view)
-        .navigateUp()
-  }
+// -- For a change, onBack and OnNext are extension functions -- //
+
+private fun onBack(view: View) {
+  Navigation.findNavController(view)
+      .navigateUp()
+}
+
+private fun onNext(view: View) {
+  Navigation.findNavController(view)
+      .navigate(
+          R.id.action_navigation_next_to_navigation_back,
+          bundleOf(
+              "has_custom_params" to true,
+              "custom_arg" to "Kryptonian"
+          )
+      )
 }

@@ -21,7 +21,6 @@ class DrawerNavigationActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_drawer_navigation)
     setSupportActionBar(toolbar)
-
     ActionBarDrawerToggle(
         this,
         drawerLayout,
