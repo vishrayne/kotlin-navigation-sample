@@ -39,6 +39,13 @@ class DrawerNavigationActivity : AppCompatActivity() {
         }
   }
 
+  override fun onSupportNavigateUp(): Boolean {
+    return NavigationUI.navigateUp(
+        drawerLayout,
+        Navigation.findNavController(this, R.id.drawerNavFragment)
+    )
+  }
+
   override fun onBackPressed() {
     if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
       drawerLayout.closeDrawer(GravityCompat.START)
