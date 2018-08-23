@@ -31,7 +31,8 @@ class PlaceHolderFragment : Fragment() {
   interface OnActionListener {
     fun onAction(
       actionLabel: String,
-      view: View
+      view: View,
+      args: Bundle?
     )
   }
 
@@ -62,7 +63,7 @@ class PlaceHolderFragment : Fragment() {
       actionBtn.visibility = View.GONE
     } else {
       actionBtn.visibility = View.VISIBLE
-      attachAction(context, action)
+      attachAction(context, action, arguments)
     }
 
     if (hasCustomArgs) {
@@ -75,7 +76,8 @@ class PlaceHolderFragment : Fragment() {
 
   private fun attachAction(
     context: Context?,
-    action: String
+    action: String,
+    args: Bundle?
   ) {
     if (context !is OnActionListener) {
       throw RuntimeException(context.toString() + " must implement OnActionListener")
@@ -83,7 +85,7 @@ class PlaceHolderFragment : Fragment() {
 
     listener = context
     actionBtn.text = action
-    actionBtn.setOnClickListener { listener.onAction(action, it) }
+    actionBtn.setOnClickListener { listener.onAction(action, it, args) }
   }
 
   private fun assetPackFor(label: String): Triple<String, Int, String> {

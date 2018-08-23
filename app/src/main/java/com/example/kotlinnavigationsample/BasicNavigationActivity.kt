@@ -23,7 +23,8 @@ class BasicNavigationActivity : AppCompatActivity(), PlaceHolderFragment.OnActio
 
   override fun onAction(
     actionLabel: String,
-    view: View
+    view: View,
+    args: Bundle?
   ) = when (actionLabel) {
     NEXT -> onNext(view)
     BACK -> onBack(view)
