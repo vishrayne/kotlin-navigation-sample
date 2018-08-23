@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/deep_navigation"
+    app:startDestination="@id/placeHolderFragment">
+
+  <fragment
+      android:id="@+id/placeHolderFragment"
+      android:name="com.example.kotlinnavigationsample.common.PlaceHolderFragment"
+      android:label="PlaceHolderFragment"
+      tools:layout="@layout/fragment_place_holder">
+    <argument
+        android:name="label"
+        android:defaultValue="deep"/>
+    <deepLink app:uri="www.example.co.in/{deep_arg}"/>
+  </fragment>
+</navigation>

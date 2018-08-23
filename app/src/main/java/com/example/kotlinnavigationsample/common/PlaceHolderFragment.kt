@@ -25,6 +25,7 @@ class PlaceHolderFragment : Fragment() {
     const val TOOLS = "tools"
     const val SHARE = "share"
     const val SEND = "send"
+    const val DEEP = "deep"
     const val NONE = "none" // no-op response code
   }
 
@@ -101,6 +102,7 @@ class PlaceHolderFragment : Fragment() {
       TOOLS -> Triple("Tools", R.drawable.ic_menu_manage, NONE)
       SHARE -> Triple("Share", R.drawable.ic_menu_share, NONE)
       SEND -> Triple("Send", R.drawable.ic_menu_send, NONE)
+      DEEP -> Triple("Deep Link", R.drawable.ic_link_black_24dp, "Reveal link")
       else -> Triple("Unknown", R.drawable.ic_launcher_background, NONE)
     }
   }
