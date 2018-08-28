@@ -2,31 +2,21 @@ package com.example.kotlinnavigationsample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.basicNavButton
-import kotlinx.android.synthetic.main.activity_main.bottomNavButton
-import kotlinx.android.synthetic.main.activity_main.deepNavButton
-import kotlinx.android.synthetic.main.activity_main.drawerNavButton
+import com.example.kotlinnavigationsample.common.MainFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainFragment.OnItemInteractionListener {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-
-    basicNavButton.setOnClickListener {
-      startActivity(BasicNavigationActivity.getIntent(this@MainActivity))
-    }
-
-    bottomNavButton.setOnClickListener {
-      startActivity(BottomNavigationActivity.getIntent(this@MainActivity))
-    }
-
-    drawerNavButton.setOnClickListener {
-      startActivity(DrawerNavigationActivity.getIntent(this@MainActivity))
-    }
-
-    deepNavButton.setOnClickListener {
-      startActivity(DeepLinkNavigationActivity.getIntent(this@MainActivity))
-    }
   }
 
+  override fun onItemInteraction(itemID: Int) {
+    when (itemID) {
+      MainFragment.BASIC_NAV -> BasicNavigationActivity.getIntent(this)
+      MainFragment.BOTTOM_NAV -> BottomNavigationActivity.getIntent(this)
+      MainFragment.DRAWER_NAV -> DrawerNavigationActivity.getIntent(this)
+      MainFragment.DEEP_NAV -> DeepLinkNavigationActivity.getIntent(this)
+      else -> throw RuntimeException("Invalid Example: $itemID")
+    }.apply(::startActivity)
+  }
 }
