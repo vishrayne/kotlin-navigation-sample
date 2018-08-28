@@ -21,7 +21,7 @@ class BottomNavigationActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_bottom_navigation)
-    Navigation.findNavController(this, R.id.bottomNavFragment)
+    navController = Navigation.findNavController(this, R.id.bottomNavFragment)
         .also {
           NavigationUI.setupActionBarWithNavController(this, it)
           NavigationUI.setupWithNavController(bottomNavigation, it)
