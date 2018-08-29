@@ -1,21 +1,15 @@
 package com.example.kotlinnavigationsample
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import com.example.kotlinnavigationsample.common.PlaceHolderFragment
-import com.example.kotlinnavigationsample.common.PlaceHolderFragment.Action.BACK
-import com.example.kotlinnavigationsample.common.PlaceHolderFragment.Action.NEXT
+import com.example.kotlinnavigationsample.common.PlaceHolderFragment.Companion.BACK
+import com.example.kotlinnavigationsample.common.PlaceHolderFragment.Companion.NEXT
 
 class BasicNavigationActivity : AppCompatActivity(), PlaceHolderFragment.OnActionListener {
-  companion object {
-    fun getIntent(context: Context): Intent = Intent(context, BasicNavigationActivity::class.java)
-  }
-
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_basic_navigation)

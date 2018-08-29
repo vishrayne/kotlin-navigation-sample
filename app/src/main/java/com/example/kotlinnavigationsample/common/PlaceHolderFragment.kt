@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_place_holder.textView
 import kotlinx.android.synthetic.main.fragment_place_holder.vectorImageView
 
 class PlaceHolderFragment : Fragment() {
-  companion object Action {
+  companion object {
     const val NEXT = "next"
     const val BACK = "back"
     const val HOME = "home"

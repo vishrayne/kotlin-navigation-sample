@@ -1,7 +1,5 @@
 package com.example.kotlinnavigationsample
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -12,12 +10,6 @@ import kotlinx.android.synthetic.main.activity_bottom_navigation.bottomNavigatio
 class BottomNavigationActivity : AppCompatActivity() {
   private lateinit var navController: NavController
 
-  companion object {
-    fun getIntent(context: Context): Intent = Intent(context, BottomNavigationActivity::class.java)
-  }
-
-  override fun onSupportNavigateUp() = navController.navigateUp()
-
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_bottom_navigation)
@@ -27,4 +19,6 @@ class BottomNavigationActivity : AppCompatActivity() {
           NavigationUI.setupWithNavController(bottomNavigation, it)
         }
   }
+
+  override fun onSupportNavigateUp() = navController.navigateUp()
 }

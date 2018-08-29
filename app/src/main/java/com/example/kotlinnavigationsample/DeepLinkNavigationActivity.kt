@@ -1,7 +1,5 @@
 package com.example.kotlinnavigationsample
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -9,13 +7,6 @@ import com.example.kotlinnavigationsample.common.PlaceHolderFragment
 import com.google.android.material.snackbar.Snackbar
 
 class DeepLinkNavigationActivity : AppCompatActivity(), PlaceHolderFragment.OnActionListener {
-  companion object {
-    fun getIntent(context: Context): Intent = Intent(
-        context,
-        DeepLinkNavigationActivity::class.java
-    )
-  }
-
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_deep_link_navigation)

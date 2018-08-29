@@ -9,5 +9,38 @@
       android:id="@+id/mainFragment"
       android:name="com.example.kotlinnavigationsample.common.MainFragment"
       android:label="Main Fragment"
-      tools:layout="@layout/fragment_main"/>
+      tools:layout="@layout/fragment_main">
+    <action
+        android:id="@+id/action_mainFragment_to_basicNavigationActivity"
+        app:destination="@id/basicNavigationActivity"/>
+    <action
+        android:id="@+id/action_mainFragment_to_bottomNavigationActivity"
+        app:destination="@id/bottomNavigationActivity"/>
+    <action
+        android:id="@+id/action_mainFragment_to_drawerNavigationActivity"
+        app:destination="@id/drawerNavigationActivity"/>
+    <action
+        android:id="@+id/action_mainFragment_to_deepLinkNavigationActivity"
+        app:destination="@id/deepLinkNavigationActivity"/>
+  </fragment>
+  <activity
+      android:id="@+id/basicNavigationActivity"
+      android:name="com.example.kotlinnavigationsample.BasicNavigationActivity"
+      android:label="activity_basic_navigation"
+      tools:layout="@layout/activity_basic_navigation"/>
+  <activity
+      android:id="@+id/bottomNavigationActivity"
+      android:name="com.example.kotlinnavigationsample.BottomNavigationActivity"
+      android:label="activity_bottom_navigation"
+      tools:layout="@layout/activity_bottom_navigation"/>
+  <activity
+      android:id="@+id/drawerNavigationActivity"
+      android:name="com.example.kotlinnavigationsample.DrawerNavigationActivity"
+      android:label="content_drawer_navigation"
+      tools:layout="@layout/content_drawer_navigation"/>
+  <activity
+      android:id="@+id/deepLinkNavigationActivity"
+      android:name="com.example.kotlinnavigationsample.DeepLinkNavigationActivity"
+      android:label="activity_deep_link_navigation"
+      tools:layout="@layout/activity_deep_link_navigation"/>
 </navigation>
