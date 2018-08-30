@@ -7,7 +7,7 @@
 
   <fragment
       android:id="@+id/mainFragment"
-      android:name="com.example.kotlinnavigationsample.common.MainFragment"
+      android:name="com.example.kotlinnavigationsample.main.MainFragment"
       android:label="Main Fragment"
       tools:layout="@layout/fragment_main">
     <action
