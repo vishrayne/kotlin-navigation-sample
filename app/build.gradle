@@ -15,8 +15,14 @@ android {
     vectorDrawables.useSupportLibrary = true
   }
   buildTypes {
-    release {
+    debug {
       minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+      signingConfig signingConfigs.debug
+    }
+
+    release {
+      minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
@@ -25,8 +31,8 @@ android {
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
   implementation 'androidx.appcompat:appcompat:1.0.0-rc02'
-  implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
   implementation 'androidx.legacy:legacy-support-v4:1.0.0-rc02'
   implementation 'androidx.vectordrawable:vectordrawable:1.0.0-rc02'
   implementation 'androidx.core:core-ktx:1.0.0-rc02'
