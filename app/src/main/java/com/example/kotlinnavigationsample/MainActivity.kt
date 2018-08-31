@@ -25,4 +25,6 @@ class MainActivity : AppCompatActivity(), MainFragment.OnItemInteractionListener
       else -> throw RuntimeException("Invalid Example: $itemID")
     }.apply(mainNavController::navigate)
   }
+
+  override fun onSupportNavigateUp(): Boolean = mainNavController.navigateUp()
 }
