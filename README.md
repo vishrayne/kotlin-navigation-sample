@@ -7,6 +7,7 @@ A very minimal playground app to showcase how the new [navigation architecture c
 3. Bottom Navigation
 4. Drawer Navigation
 5. Deep Navigation
+6. Safe-Args Navigation
 
 > To be continued...
 
