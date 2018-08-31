@@ -22,6 +22,9 @@
     <action
         android:id="@+id/action_mainFragment_to_deepLinkNavigationActivity"
         app:destination="@id/deepLinkNavigationActivity"/>
+    <action
+        android:id="@+id/action_mainFragment_to_safeArgsNavigationActivity"
+        app:destination="@id/safeArgsNavigationActivity"/>
   </fragment>
   <activity
       android:id="@+id/basicNavigationActivity"
@@ -43,4 +46,9 @@
       android:name="com.example.kotlinnavigationsample.DeepLinkNavigationActivity"
       android:label="activity_deep_link_navigation"
       tools:layout="@layout/activity_deep_link_navigation"/>
+  <activity
+      android:id="@+id/safeArgsNavigationActivity"
+      android:name="com.example.kotlinnavigationsample.SafeArgsNavigationActivity"
+      android:label="activity_safe_args_navigation"
+      tools:layout="@layout/activity_safe_args_navigation"/>
 </navigation>

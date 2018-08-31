@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/safe_args_navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/safe_args_navigation"
+    app:startDestination="@id/navigation_safe_input">
+  <fragment
+      android:id="@+id/navigation_safe_input"
+      android:name="com.example.kotlinnavigationsample.safeargs.InputDetailsFragment"
+      android:label="SafeInputFragment"
+      tools:layout="@layout/fragment_input_details">
 
+    <action
+        android:id="@+id/action_navigation_safe_input_to_navigation_safe_show"
+        app:destination="@id/navigation_safe_show"/>
+  </fragment>
+
+  <fragment
+      android:id="@+id/navigation_safe_show"
+      android:name="com.example.kotlinnavigationsample.safeargs.ConfirmInputFragment"
+      android:label="SafeConfirmFragment"
+      tools:layout="@layout/fragment_confirm_input">
+    <argument
+        android:name="name"
+        android:defaultValue="Anonymous"
+        app:argType="string"/>
+    <argument
+        android:name="amount"
+        android:defaultValue="0"
+        app:argType="integer"/>
+    <argument
+        android:name="remember_choice"
+        android:defaultValue="false"
+        app:argType="boolean"/>
+  </fragment>
 </navigation>

@@ -12,6 +12,7 @@ data class Example(
     const val BOTTOM_NAV = 1
     const val DRAWER_NAV = 2
     const val DEEP_NAV = 3
+    const val SAFE_ARGS = 4
 
     fun getItems(): List<Example> {
       return listOf(
@@ -29,6 +30,9 @@ data class Example(
           ),
           Example(
               DEEP_NAV, "Deep Navigation"
+          ),
+          Example(
+              SAFE_ARGS, "Safe Args Navigation"
           )
       )
     }

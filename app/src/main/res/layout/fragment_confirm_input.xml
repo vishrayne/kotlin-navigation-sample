@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".safeargs.ConfirmInputFragment"
+    >
+
+  <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/confirmIcon"
+      android:layout_width="96dp"
+      android:layout_height="96dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="24dp"
+      android:adjustViewBounds="true"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/ic_text_format_black_24dp"
+      />
+
+  <TextView
+      android:id="@+id/confirmTransferLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:text="@string/confirm_transfer"
+      app:layout_constraintEnd_toEndOf="@+id/confirmIcon"
+      app:layout_constraintStart_toStartOf="@+id/confirmIcon"
+      app:layout_constraintTop_toBottomOf="@+id/confirmIcon"
+      />
+
+  <TextView
+      android:id="@+id/confirmAmountText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@string/input_amount"
+      app:layout_constraintEnd_toEndOf="@+id/confirmTransferLabel"
+      app:layout_constraintStart_toStartOf="@+id/confirmTransferLabel"
+      app:layout_constraintTop_toBottomOf="@+id/confirmTransferLabel"
+      style="@style/Base.TextAppearance.AppCompat.Large"
+      />
+
+  <TextView
+      android:id="@+id/confirmToLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:text="@string/confirm_to"
+      app:layout_constraintEnd_toEndOf="@+id/confirmAmountText"
+      app:layout_constraintStart_toStartOf="@+id/confirmAmountText"
+      app:layout_constraintTop_toBottomOf="@+id/confirmAmountText"
+      />
+
+  <TextView
+      android:id="@+id/confirmNameText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@string/input_name"
+      app:layout_constraintEnd_toEndOf="@+id/confirmToLabel"
+      app:layout_constraintStart_toStartOf="@+id/confirmToLabel"
+      app:layout_constraintTop_toBottomOf="@+id/confirmToLabel"
+      style="@style/Base.TextAppearance.AppCompat.Large"
+      />
+
+  <TextView
+      android:id="@+id/confirmRememberText"
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:layout_marginTop="8dp"
+      android:text="@string/confirm_remember_this_choice"
+      app:layout_constraintEnd_toEndOf="@+id/confirmNameText"
+      app:layout_constraintStart_toStartOf="@+id/confirmNameText"
+      app:layout_constraintTop_toBottomOf="@+id/confirmNameText"
+      />
+
+  <Button
+      android:id="@+id/doneButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginStart="8dp"
+      android:text="@string/done"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      />
+</androidx.constraintlayout.widget.ConstraintLayout>

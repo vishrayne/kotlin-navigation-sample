@@ -33,4 +33,13 @@
   <!-- TODO: Remove or change this placeholder text -->
   <string name="hello_blank_fragment">Hello blank fragment</string>
   <string name="title_activity_safe_args_navigation">Safe Arguments</string>
+  <string name="input_title">Please fill the details</string>
+  <string name="input_name">Name</string>
+  <string name="input_amount">Amount</string>
+  <string name="input_submit">Submit</string>
+  <string name="input_remember_my_choice">Remember my choice</string>
+  <string name="confirm_transfer">Transfer</string>
+  <string name="confirm_to">to</string>
+  <string name="confirm_remember_this_choice">I will remember this choice</string>
+  <string name="done">Done</string>
 </resources>
