@@ -38,7 +38,9 @@ class PlaceHolderFragment : Fragment() {
   }
 
   private lateinit var listener: OnActionListener
-  private val label: String by lazy { arguments?.getString("label") ?: "" }
+  private val label: String by lazy {
+    arguments?.getString("label") ?: ""
+  }
   private val hasCustomArgs: Boolean by lazy {
     arguments?.getBoolean("has_custom_params") ?: false
   }
@@ -56,6 +58,8 @@ class PlaceHolderFragment : Fragment() {
     view: View,
     savedInstanceState: Bundle?
   ) {
+    super.onViewCreated(view, savedInstanceState)
+    
     val (tag, iconID, action) = assetPackFor(label)
     vectorImageView.setImageResource(iconID)
     textView.text = tag
