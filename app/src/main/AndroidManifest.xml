@@ -52,6 +52,11 @@
           android:name="android.support.PARENT_ACTIVITY"
           android:value="com.example.kotlinnavigationsample.MainActivity"/>
     </activity>
+    <activity
+        android:name=".SafeArgsNavigationActivity"
+        android:label="@string/title_activity_safe_args_navigation"
+        android:parentActivityName=".MainActivity">
+    </activity>
   </application>
-
 </manifest>
+
