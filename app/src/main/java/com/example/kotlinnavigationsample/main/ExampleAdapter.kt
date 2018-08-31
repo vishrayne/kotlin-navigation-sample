@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinnavigationsample.R
+import com.example.kotlinnavigationsample.util.inflate
 import kotlinx.android.synthetic.main.item_list_example.view.exampleName
 
 /**

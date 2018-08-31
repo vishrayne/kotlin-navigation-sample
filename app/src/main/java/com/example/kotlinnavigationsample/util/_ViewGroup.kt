@@ -1,4 +1,4 @@
-package com.example.kotlinnavigationsample.main
+package com.example.kotlinnavigationsample.util
 
 import android.view.LayoutInflater
 import android.view.View
