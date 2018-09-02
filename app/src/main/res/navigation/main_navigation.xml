@@ -25,7 +25,11 @@
     <action
         android:id="@+id/action_mainFragment_to_safeArgsNavigationActivity"
         app:destination="@id/safeArgsNavigationActivity"/>
+    <action
+        android:id="@+id/action_mainFragment_to_conditionalNavigationActivity"
+        app:destination="@id/conditionalNavigationActivity"/>
   </fragment>
+
   <activity
       android:id="@+id/basicNavigationActivity"
       android:name="com.example.kotlinnavigationsample.BasicNavigationActivity"
@@ -51,4 +55,9 @@
       android:name="com.example.kotlinnavigationsample.SafeArgsNavigationActivity"
       android:label="activity_safe_args_navigation"
       tools:layout="@layout/activity_safe_args_navigation"/>
+  <activity
+      android:id="@+id/conditionalNavigationActivity"
+      android:name="com.example.kotlinnavigationsample.ConditionalNavigationActivity"
+      android:label="activity_conditional_navigation"
+      tools:layout="@layout/activity_conditional_navigation"/>
 </navigation>

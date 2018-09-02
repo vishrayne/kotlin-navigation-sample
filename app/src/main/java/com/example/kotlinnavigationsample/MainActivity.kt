@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnItemInteractionListener
       Example.DRAWER_NAV -> R.id.action_mainFragment_to_drawerNavigationActivity
       Example.DEEP_NAV -> R.id.action_mainFragment_to_deepLinkNavigationActivity
       Example.SAFE_ARGS -> R.id.action_mainFragment_to_safeArgsNavigationActivity
+      Example.CONDITIONAL_NAV -> R.id.action_mainFragment_to_conditionalNavigationActivity
       else -> throw RuntimeException("Invalid Example: $itemID")
     }.apply(mainNavController::navigate)
   }

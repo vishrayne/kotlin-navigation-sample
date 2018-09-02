@@ -60,6 +60,14 @@
           android:name="android.support.PARENT_ACTIVITY"
           android:value="com.example.kotlinnavigationsample.MainActivity"/>
     </activity>
+    <activity
+        android:name=".ConditionalNavigationActivity"
+        android:label="@string/title_activity_conditional_navigation"
+        android:parentActivityName=".MainActivity">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.example.kotlinnavigationsample.MainActivity"/>
+    </activity>
   </application>
 </manifest>
 
