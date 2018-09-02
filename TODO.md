@@ -5,5 +5,6 @@
 - [ ] Example for conditional navigation.
 - [ ] Example for nested navigation graph.
 - [ ] Example for pop behavior.
+- [ ] Example for options menu navigation
 - [ ] Example for widget deep link.
 - [ ] Test suite for navigation
