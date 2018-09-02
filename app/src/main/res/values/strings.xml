@@ -43,4 +43,5 @@
   <string name="confirm_remember_this_choice">I will remember this choice</string>
   <string name="done">Done</string>
   <string name="title_activity_conditional_navigation">Conditional Navigation</string>
+  <string name="add_to_cart">Add to cart</string>
 </resources>
