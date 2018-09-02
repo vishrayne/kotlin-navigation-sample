@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".BasicNavigationActivity"
     >
-
-  <!-- Disabled app:navGraph="@menu_bottom_navigation/basic_navigation. See host activity for details"-->
   <fragment
       android:id="@+id/basicNavHostFragment"
       android:name="androidx.navigation.fragment.NavHostFragment"
