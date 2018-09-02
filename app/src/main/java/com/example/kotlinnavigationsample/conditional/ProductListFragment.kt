@@ -6,13 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import com.example.kotlinnavigationsample.R
 import kotlinx.android.synthetic.main.fragment_product_list.productRecyclerView
 
 class ProductListFragment : Fragment() {
   private lateinit var listener: OnProductInteractionListener
+  private val productViewModel: ProductViewModel by lazy {
+    ViewModelProviders.of(requireActivity())
+        .get(ProductViewModel::class.java)
+  }
 
   interface OnProductInteractionListener {
     fun onProductInteraction(productID: Int)
@@ -32,12 +39,12 @@ class ProductListFragment : Fragment() {
   ) {
     super.onViewCreated(view, savedInstanceState)
 
-    productRecyclerView.apply {
-      layoutManager = GridLayoutManager(context, 2)
-      adapter = ProductAdapter(Product.getDefaultList()) {
+    productRecyclerView.layoutManager = GridLayoutManager(context, 2)
+    productViewModel.products.observe(this, Observer { list ->
+      productRecyclerView.adapter = ProductAdapter(list) {
         listener.onProductInteraction(it.id)
       }
-    }
+    })
   }
 
   override fun onAttach(context: Context) {

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 
 import com.example.kotlinnavigationsample.R
 import kotlinx.android.synthetic.main.fragment_product_detail.addToCartButton
@@ -18,10 +19,9 @@ import kotlinx.android.synthetic.main.fragment_product_detail.productDetailTitle
 
 class ProductDetailFragment : Fragment() {
   private lateinit var listener: OnProductDetailInteractionListener
-  private val product: Product by lazy {
-    with(ProductDetailFragmentArgs.fromBundle(arguments)) {
-      Product(productId, "Dummy", "Dummy Desc", R.drawable.ic_launcher_foreground)
-    }
+  private val productViewModel: ProductViewModel by lazy {
+    ViewModelProviders.of(requireActivity())
+        .get(ProductViewModel::class.java)
   }
 
   interface OnProductDetailInteractionListener {
@@ -44,6 +44,11 @@ class ProductDetailFragment : Fragment() {
     savedInstanceState: Bundle?
   ) {
     super.onViewCreated(view, savedInstanceState)
+
+    val product: Product = ProductDetailFragmentArgs.fromBundle(arguments)
+        .run {
+          productViewModel.findProductById(productId)
+        }
 
     productDetailImage.setImageResource(product.imageRes)
     productDetailTitle.text = product.name

@@ -7,9 +7,11 @@ data class Product(
   var name: String,
   var description: String,
   var imageRes: Int,
-  var amount: Double = getRandomAmount()
+  var amount: Double = randomAmount()
 ) {
   companion object {
+    val invalid = Product(-1, "Invalid item", "No Description", R.mipmap.ic_launcher_round, 0.0)
+
     fun getDefaultList(): List<Product> {
       return listOf(
           Product(1, "Home", "Home, sweet home", R.drawable.ic_home_black_24dp),
@@ -25,7 +27,9 @@ data class Product(
       )
     }
 
-    private fun getRandomAmount(): Double = (100..2000).shuffled().last().toDouble()
+    private fun randomAmount(): Double = (100..2000).shuffled()
+        .last()
+        .toDouble()
   }
 
   val amountAsCurrency: String = String.format("\u20B9 %,.2f", amount)

@@ -43,6 +43,8 @@ dependencies {
   // navigation
   implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
   implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+  // view-model + life-data
+  implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
   // test
   testImplementation 'junit:junit:4.12'
   androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
