@@ -20,5 +20,5 @@ class BottomNavigationActivity : AppCompatActivity() {
         }
   }
 
-  override fun onSupportNavigateUp() = navController.navigateUp()
+  override fun onSupportNavigateUp() = navController.navigateUp() || super.onSupportNavigateUp()
 }

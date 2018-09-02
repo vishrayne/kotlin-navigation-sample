@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity(), MainFragment.OnItemInteractionListener
     mainNavController = Navigation.findNavController(this, R.id.mainNavFragment)
   }
 
+  override fun onSupportNavigateUp(): Boolean =
+    mainNavController.navigateUp() || super.onSupportNavigateUp()
+
   override fun onItemInteraction(itemID: Int) {
     when (itemID) {
       Example.BASIC_NAV -> R.id.action_mainFragment_to_basicNavigationActivity
@@ -27,6 +30,4 @@ class MainActivity : AppCompatActivity(), MainFragment.OnItemInteractionListener
       else -> throw RuntimeException("Invalid Example: $itemID")
     }.apply(mainNavController::navigate)
   }
-
-  override fun onSupportNavigateUp(): Boolean = mainNavController.navigateUp()
 }

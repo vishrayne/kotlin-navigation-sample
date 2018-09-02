@@ -4,16 +4,23 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.kotlinnavigationsample.common.PlaceHolderFragment
 import com.example.kotlinnavigationsample.common.PlaceHolderFragment.Companion.BACK
 import com.example.kotlinnavigationsample.common.PlaceHolderFragment.Companion.NEXT
 
 class BasicNavigationActivity : AppCompatActivity(), PlaceHolderFragment.OnActionListener {
+  private lateinit var basicNavController: NavController
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_basic_navigation)
+    basicNavController = Navigation.findNavController(this, R.id.basicNavHostFragment)
   }
+
+  override fun onSupportNavigateUp(): Boolean =
+    basicNavController.navigateUp() || super.onSupportNavigateUp()
 
   override fun onAction(
     actionLabel: String,

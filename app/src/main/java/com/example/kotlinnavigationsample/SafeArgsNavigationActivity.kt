@@ -19,6 +19,9 @@ class SafeArgsNavigationActivity : AppCompatActivity(),
     safeArgNavController = Navigation.findNavController(this, R.id.safeArgNavHostFragment)
   }
 
+  override fun onSupportNavigateUp(): Boolean =
+    safeArgNavController.navigateUp() || super.onSupportNavigateUp()
+
   override fun onInput(
     name: String,
     amount: Int,

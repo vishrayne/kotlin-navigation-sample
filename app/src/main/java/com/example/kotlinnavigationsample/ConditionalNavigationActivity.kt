@@ -19,7 +19,11 @@ class ConditionalNavigationActivity : AppCompatActivity(),
     setContentView(R.layout.activity_conditional_navigation)
     conditionalArgNavController =
         Navigation.findNavController(this, R.id.conditionalNavHostFragment)
+
   }
+
+  override fun onSupportNavigateUp(): Boolean =
+    conditionalArgNavController.navigateUp() || super.onSupportNavigateUp()
 
   override fun onProductInteraction(productID: Int) {
     ProductListFragmentDirections.actionProductListFragmentToProductDetailFragment()
