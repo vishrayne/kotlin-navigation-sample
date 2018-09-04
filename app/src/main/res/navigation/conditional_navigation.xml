@@ -13,6 +13,9 @@
     <action
         android:id="@+id/action_productListFragment_to_productDetailFragment"
         app:destination="@id/productDetailFragment"/>
+    <action
+        android:id="@+id/action_productListFragment_to_loginFragment"
+        app:destination="@id/loginFragment"/>
   </fragment>
 
   <fragment
@@ -24,5 +27,13 @@
         android:name="product_id"
         android:defaultValue="-1"
         app:argType="integer"/>
+    <action
+        android:id="@+id/action_productDetailFragment_to_loginFragment"
+        app:destination="@id/loginFragment"/>
   </fragment>
+  <fragment
+      android:id="@+id/loginFragment"
+      android:name="com.example.kotlinnavigationsample.conditional.LoginFragment"
+      android:label="fragment_login"
+      tools:layout="@layout/fragment_login"/>
 </navigation>

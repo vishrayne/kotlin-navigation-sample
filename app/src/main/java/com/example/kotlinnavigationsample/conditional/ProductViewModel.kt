@@ -26,4 +26,6 @@ class ProductViewModel : ViewModel() {
   fun findProductById(id: Int): Product {
     return _productMap?.get(id) ?: Product.invalid
   }
+
+  fun hasValidUser(): Boolean = false
 }

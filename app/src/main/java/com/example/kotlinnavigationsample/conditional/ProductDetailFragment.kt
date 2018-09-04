@@ -29,6 +29,8 @@ class ProductDetailFragment : Fragment() {
       productID: Int,
       count: Int
     )
+
+    fun requestLogin(actionID: Int)
   }
 
   override fun onCreateView(
@@ -57,6 +59,11 @@ class ProductDetailFragment : Fragment() {
     productDetailID.text = product.wareHouseID
 
     addToCartButton.setOnClickListener {
+      if (!productViewModel.hasValidUser()) {
+        listener.requestLogin(R.id.action_productDetailFragment_to_loginFragment)
+        return@setOnClickListener
+      }
+
       listener.onProductDetailInteraction(product.id, 1)
     }
   }
