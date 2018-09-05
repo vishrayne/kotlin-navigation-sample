@@ -9,6 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.example.kotlinnavigationsample.R
+import com.example.kotlinnavigationsample.util.asString
+import kotlinx.android.synthetic.main.fragment_login.loginButton
+import kotlinx.android.synthetic.main.fragment_login.password
+import kotlinx.android.synthetic.main.fragment_login.passwordText
+import kotlinx.android.synthetic.main.fragment_login.userName
+import kotlinx.android.synthetic.main.fragment_login.userNameText
 
 class LoginFragment : Fragment() {
   private lateinit var listener: OnLoginInteractionListener
@@ -30,7 +36,20 @@ class LoginFragment : Fragment() {
     savedInstanceState: Bundle?
   ) {
     super.onViewCreated(view, savedInstanceState)
-    
+
+    loginButton.setOnClickListener {
+      when {
+        userNameText.text.isNullOrEmpty() -> userName.error = "Invalid user"
+        passwordText.text.isNullOrEmpty() -> password.error = "Invalid password"
+        else -> {
+          userNameText.text.asString()
+              .apply {
+                productViewModel.setUser(this)
+                listener.onLoginInteraction(this)
+              }
+        }
+      }
+    }
   }
 
   override fun onAttach(context: Context) {
@@ -43,7 +62,7 @@ class LoginFragment : Fragment() {
   }
 
   interface OnLoginInteractionListener {
-    fun onLoginInteraction(uri: Uri)
+    fun onLoginInteraction(userName: String)
   }
 
 }

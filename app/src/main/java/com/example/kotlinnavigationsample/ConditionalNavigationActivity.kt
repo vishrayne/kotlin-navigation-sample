@@ -47,9 +47,7 @@ class ConditionalNavigationActivity : AppCompatActivity(),
     Log.d("ConditionalNavExample", "Product Selected: $productID [count: $count]")
   }
 
-  override fun onLoginInteraction(uri: Uri) {
-    TODO(
-        "not implemented"
-    ) //To change body of created functions use File | Settings | File Templates.
+  override fun onLoginInteraction(userName: String) {
+    conditionalArgNavController.navigateUp()
   }
 }

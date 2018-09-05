@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 
 class ProductViewModel : ViewModel() {
   private val _products: MutableLiveData<List<Product>> = MutableLiveData()
+  private val _user: MutableLiveData<String> = MutableLiveData()
+
   // faster lookup, compared to list
   private val _productMap by lazy {
     _products.value?.map { it.id to it }
@@ -23,9 +25,20 @@ class ProductViewModel : ViewModel() {
       return _products
     }
 
+  val user: LiveData<String>
+    get() = _user
+
   fun findProductById(id: Int): Product {
     return _productMap?.get(id) ?: Product.invalid
   }
 
-  fun hasValidUser(): Boolean = false
+  fun hasValidUser(): Boolean = !_user.value.isNullOrEmpty()
+
+  fun setUser(name: String) {
+    _user.value = name
+  }
+
+  fun logout() {
+    _user.value = null
+  }
 }

@@ -3,10 +3,12 @@ package com.example.kotlinnavigationsample.conditional
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.example.kotlinnavigationsample.R
@@ -66,6 +68,10 @@ class ProductDetailFragment : Fragment() {
 
       listener.onProductDetailInteraction(product.id, 1)
     }
+
+    productViewModel.user.observe(this, Observer {
+      Log.d("ProdDetail", "User => $it")
+    })
   }
 
   override fun onAttach(context: Context) {
