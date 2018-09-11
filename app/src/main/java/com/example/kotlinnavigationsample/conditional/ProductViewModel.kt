@@ -4,10 +4,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.kotlinnavigationsample.conditional.UserState.Guest
 
 class ProductViewModel : ViewModel() {
   private val _products: MutableLiveData<List<Product>> = MutableLiveData()
-  private val _user: MutableLiveData<String> = MutableLiveData()
+  private val _userEventState: MutableLiveData<Event<UserState>> = MutableLiveData()
 
   // faster lookup, compared to list
   private val _productMap by lazy {
@@ -25,20 +26,26 @@ class ProductViewModel : ViewModel() {
       return _products
     }
 
-  val user: LiveData<String>
-    get() = _user
+  val eventState: LiveData<Event<UserState>>
+    get() {
+      if (_userEventState.value == null) {
+        _userEventState.value = Event(Guest)
+      }
+
+      return _userEventState
+    }
+
+  fun setUserState(state: UserState) {
+    _userEventState.value = Event(state)
+  }
 
   fun findProductById(id: Int): Product {
     return _productMap?.get(id) ?: Product.invalid
   }
+}
 
-  fun hasValidUser(): Boolean = !_user.value.isNullOrEmpty()
-
-  fun setUser(name: String) {
-    _user.value = name
-  }
-
-  fun logout() {
-    _user.value = null
-  }
+sealed class UserState {
+  object Guest : UserState()
+  object Cancelled : UserState()
+  data class LoginSuccess(val name: String) : UserState()
 }

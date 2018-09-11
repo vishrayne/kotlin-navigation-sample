@@ -1,17 +1,17 @@
 package com.example.kotlinnavigationsample.conditional
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-
 import com.example.kotlinnavigationsample.R
+import com.example.kotlinnavigationsample.conditional.UserState.Cancelled
+import com.example.kotlinnavigationsample.conditional.UserState.Guest
+import com.example.kotlinnavigationsample.conditional.UserState.LoginSuccess
 import kotlinx.android.synthetic.main.fragment_product_detail.addToCartButton
 import kotlinx.android.synthetic.main.fragment_product_detail.productDetailAmount
 import kotlinx.android.synthetic.main.fragment_product_detail.productDetailDesc
@@ -33,6 +33,8 @@ class ProductDetailFragment : Fragment() {
     )
 
     fun requestLogin(actionID: Int)
+
+    fun popStack()
   }
 
   override fun onCreateView(
@@ -49,28 +51,9 @@ class ProductDetailFragment : Fragment() {
   ) {
     super.onViewCreated(view, savedInstanceState)
 
-    val product: Product = ProductDetailFragmentArgs.fromBundle(arguments)
-        .run {
-          productViewModel.findProductById(productId)
-        }
-
-    productDetailImage.setImageResource(product.imageRes)
-    productDetailTitle.text = product.name
-    productDetailDesc.text = product.description
-    productDetailAmount.text = product.amountAsCurrency
-    productDetailID.text = product.wareHouseID
-
-    addToCartButton.setOnClickListener {
-      if (!productViewModel.hasValidUser()) {
-        listener.requestLogin(R.id.action_productDetailFragment_to_loginFragment)
-        return@setOnClickListener
-      }
-
-      listener.onProductDetailInteraction(product.id, 1)
-    }
-
-    productViewModel.user.observe(this, Observer {
-      Log.d("ProdDetail", "User => $it")
+    productViewModel.eventState.observe(this, Observer {
+      it.getContentIfNotHandled()
+          ?.let(::handleState)
     })
   }
 
@@ -82,6 +65,32 @@ class ProductDetailFragment : Fragment() {
       throw RuntimeException(
           context.toString() + " must implement OnProductDetailInteractionListener"
       )
+    }
+  }
+
+  private fun handleState(state: UserState) = when (state) {
+    is Guest -> listener.requestLogin(R.id.action_productDetailFragment_to_loginFragment)
+    is Cancelled -> listener.popStack()
+    is LoginSuccess -> showProductDetails(arguments!!, state.name)
+  }
+
+  private fun showProductDetails(
+    args: Bundle,
+    userName: String
+  ) {
+    val product: Product = ProductDetailFragmentArgs.fromBundle(args)
+        .run {
+          productViewModel.findProductById(productId)
+        }
+
+    productDetailImage.setImageResource(product.imageRes)
+    productDetailTitle.text = product.name
+    productDetailDesc.text = product.description
+    productDetailAmount.text = product.amountAsCurrency
+    productDetailID.text = product.wareHouseID
+
+    addToCartButton.setOnClickListener {
+      listener.onProductDetailInteraction(product.id, 1)
     }
   }
 }

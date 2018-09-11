@@ -1,14 +1,14 @@
 package com.example.kotlinnavigationsample.conditional
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.kotlinnavigationsample.R
+import com.example.kotlinnavigationsample.conditional.UserState.LoginSuccess
 import com.example.kotlinnavigationsample.util.asString
 import kotlinx.android.synthetic.main.fragment_login.loginButton
 import kotlinx.android.synthetic.main.fragment_login.password
@@ -44,7 +44,7 @@ class LoginFragment : Fragment() {
         else -> {
           userNameText.text.asString()
               .apply {
-                productViewModel.setUser(this)
+                productViewModel.setUserState(LoginSuccess(this))
                 listener.onLoginInteraction(this)
               }
         }
