@@ -53,8 +53,8 @@ class ProductDetailFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
 
     productViewModel.eventState.observe(this, Observer {
-      it.getContentIfNotHandled()
-          ?.let(::handleState)
+      it.peekContent()
+          .let(::handleState)
     })
   }
 
@@ -82,6 +82,11 @@ class ProductDetailFragment : Fragment() {
   }
 
   private fun cancelLogin() {
+    productViewModel.let {
+      it.eventState.removeObservers(this)
+      it.setUserState(Guest)
+    }
+
     listener.loginCancelled()
   }
 
