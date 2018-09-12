@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.kotlinnavigationsample.R
+import com.example.kotlinnavigationsample.conditional.UserState.Cancelled
 import com.example.kotlinnavigationsample.conditional.UserState.LoginSuccess
 import com.example.kotlinnavigationsample.util.asString
 import kotlinx.android.synthetic.main.fragment_login.loginButton
@@ -37,6 +38,13 @@ class LoginFragment : Fragment() {
   ) {
     super.onViewCreated(view, savedInstanceState)
 
+    // Wait for the view to load or this will fire on the previous fragment
+    view.post {
+      // Reset the default state to cancelled so that
+      // a back press will correctly translates to a cancelled login event
+      productViewModel.setUserState(Cancelled)
+    }
+
     loginButton.setOnClickListener {
       when {
         userNameText.text.isNullOrEmpty() -> userName.error = "Invalid user"
@@ -45,7 +53,7 @@ class LoginFragment : Fragment() {
           userNameText.text.asString()
               .apply {
                 productViewModel.setUserState(LoginSuccess(this))
-                listener.onLoginInteraction(this)
+                listener.onLoginSuccess(this)
               }
         }
       }
@@ -62,7 +70,7 @@ class LoginFragment : Fragment() {
   }
 
   interface OnLoginInteractionListener {
-    fun onLoginInteraction(userName: String)
+    fun onLoginSuccess(userName: String)
   }
 
 }

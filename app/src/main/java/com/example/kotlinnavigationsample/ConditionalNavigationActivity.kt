@@ -1,9 +1,8 @@
 package com.example.kotlinnavigationsample
 
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.kotlinnavigationsample.conditional.LoginFragment
@@ -15,6 +14,7 @@ class ConditionalNavigationActivity : AppCompatActivity(),
     ProductListFragment.OnProductInteractionListener,
     ProductDetailFragment.OnProductDetailInteractionListener,
     LoginFragment.OnLoginInteractionListener {
+
   private lateinit var conditionalArgNavController: NavController
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,11 @@ class ConditionalNavigationActivity : AppCompatActivity(),
     Log.d("ConditionalNavExample", "Product Selected: $productID [count: $count]")
   }
 
-  override fun onLoginInteraction(userName: String) {
-    conditionalArgNavController.navigateUp()
+  override fun onLoginSuccess(userName: String) {
+    conditionalArgNavController.popBackStack()
+  }
+
+  override fun loginCancelled() {
+    conditionalArgNavController.popBackStack(R.id.productListFragment, false)
   }
 }

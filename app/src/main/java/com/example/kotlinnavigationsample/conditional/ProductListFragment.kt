@@ -39,6 +39,8 @@ class ProductListFragment : Fragment() {
   ) {
     super.onViewCreated(view, savedInstanceState)
 
+    // set the current user
+
     productRecyclerView.layoutManager = GridLayoutManager(context, 2)
     productViewModel.products.observe(this, Observer { list ->
       productRecyclerView.adapter = ProductAdapter(list) {

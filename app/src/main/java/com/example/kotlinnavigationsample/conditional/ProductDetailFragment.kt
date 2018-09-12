@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -34,7 +35,7 @@ class ProductDetailFragment : Fragment() {
 
     fun requestLogin(actionID: Int)
 
-    fun popStack()
+    fun loginCancelled()
   }
 
   override fun onCreateView(
@@ -69,9 +70,19 @@ class ProductDetailFragment : Fragment() {
   }
 
   private fun handleState(state: UserState) = when (state) {
-    is Guest -> listener.requestLogin(R.id.action_productDetailFragment_to_loginFragment)
-    is Cancelled -> listener.popStack()
+    is Guest -> requestLogin()
+    is Cancelled -> cancelLogin()
     is LoginSuccess -> showProductDetails(arguments!!, state.name)
+  }
+
+  private fun requestLogin() {
+    Toast.makeText(requireContext(), "Login to access this page!", Toast.LENGTH_SHORT)
+        .show()
+    listener.requestLogin(R.id.action_productDetailFragment_to_loginFragment)
+  }
+
+  private fun cancelLogin() {
+    listener.loginCancelled()
   }
 
   private fun showProductDetails(
